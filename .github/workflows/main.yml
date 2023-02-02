@@ -64,6 +64,7 @@ jobs:
           cd server
           echo path====
           echo $PATH
+          pwd
           which composer
           which node
           npm -v
