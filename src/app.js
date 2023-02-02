@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 
 app.get("/test", (_req, res) => {
-  console.log("====llpp===");
+  console.log("=======");
   const result = testFunction();
   res.status(200).send({ message: result });
 });
