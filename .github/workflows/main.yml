@@ -62,7 +62,10 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52-68-125-68.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
           tar xvzf server.tar.gz -C ./server
           cd server
-          node --version
+          echo path====
+          echo $PATH
+          which composer
+          which node
           npm -v
           npm install
           ENDSSH
