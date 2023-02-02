@@ -56,6 +56,6 @@ jobs:
           echo ===========Deployment to aws ec2 starts here======================
           chmod 600 ./shanklesh.pem
           echo ssh into aws console
-          ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52.68.125.68 .ap-northeast-1.compute.amazonaws.com
+          ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52.68.125.68.ap-northeast-1.compute.amazonaws.com
           rm shanklesh-scp.txt
           exit
