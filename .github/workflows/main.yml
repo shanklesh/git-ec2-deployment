@@ -66,6 +66,8 @@ jobs:
           echo $PATH
           pwd
           which composer
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh  
           which node
           npm -v
           npm install
