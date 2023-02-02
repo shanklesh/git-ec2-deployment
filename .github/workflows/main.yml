@@ -56,7 +56,7 @@ jobs:
           echo ===========Deployment to aws ec2 starts here======================
           chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
-          scp -o StrictHostKeyChecking=no -i ./shanklesh.pem ../git-ec2-deployment  ubuntu@ec2-43-207-55-237.ap-northeast-1.compute.amazonaws.com:~/
+          scp -o StrictHostKeyChecking=no -i ./shanklesh.pem ../git-ec2-deployment  ubuntu@ec2-52-68-125-68.ap-northeast-1.compute.amazonaws.com:~/
           echo ssh into aws console
           ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52-68-125-68.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
           mkdir test
