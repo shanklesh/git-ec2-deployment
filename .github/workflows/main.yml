@@ -61,14 +61,12 @@ jobs:
           echo ssh into aws console
           ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52-196-8-207.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
           tar xvzf server.tar.gz -C ./server
-          cd server
-          echo path====
-          echo $PATH
-          pwd
-          which composer
+          cd server         
           export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh  
-          which node
+          source ~/.nvm/nvm.sh
+          echo node version
+          node --version
+          echo npm version
           npm -v
           npm install
           ENDSSH
