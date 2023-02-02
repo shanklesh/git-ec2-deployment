@@ -56,7 +56,7 @@ jobs:
           echo ===========Deployment to aws ec2 starts here======================
           chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
-          tar cvzf server.tar.gz ./
+          tar cvzf server.tar.gz src *.txt
           scp -o StrictHostKeyChecking=no -i ./shanklesh.pem ./server.tar.gz  ubuntu@ec2-52-68-125-68.ap-northeast-1.compute.amazonaws.com:~/
           echo ssh into aws console
           ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52-68-125-68.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
