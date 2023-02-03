@@ -55,7 +55,8 @@ jobs:
           ls
           echo "${{secrets.SSH_PRIVATE_KEY}}" | base64 > key.pem
           echo Give 600 permissions to key.pem file
-          chmod 777 key.pem
+          ls
+          chmod 600 key.pem
           echo ===========Deployment to aws ec2 starts here======================
           chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
