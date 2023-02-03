@@ -39,7 +39,7 @@ jobs:
 
       - name: Check PR status
         run: |
-          echo "${{gitnub.event}}""
+          echo "${{github.event}}"
 
   deploy:
     needs: build
