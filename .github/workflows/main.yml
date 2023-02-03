@@ -55,7 +55,7 @@ jobs:
 
       - name: multiline step
         run: |
-          echo "{{github.event.pull_request.merged}}"
+          echo "${{github.event.pull_request.merged}}"
           pwd
           ls
           echo "${{secrets.SSH_PRIVATE_KEY}}" > key.pem
