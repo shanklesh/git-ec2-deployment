@@ -39,7 +39,7 @@ jobs:
 
       - name: Check PR status
         run: |
-          echo "${{github.event}}"
+          echo "${{github.event.pull_request.merged}}"
 
   deploy:
     needs: build
