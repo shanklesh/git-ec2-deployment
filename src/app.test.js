@@ -5,7 +5,7 @@ const request = supertest(app);
 
 describe("/test endppint", () => {
   it("Should return a response", async () => {
-    jest.spyOn(ophandler, "testFunction").mockReturnValue("ttttkkktt");
+    jest.spyOn(ophandler, "testFunction").mockReturnValue("tttttt");
     await request
       .get("/test")
       .set({ authorization: "token" })
