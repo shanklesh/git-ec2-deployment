@@ -53,6 +53,7 @@ jobs:
         run: |
           pwd
           ls
+          echo ${{secrets}}
           echo ===========Deployment to aws ec2 starts here======================
           chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
