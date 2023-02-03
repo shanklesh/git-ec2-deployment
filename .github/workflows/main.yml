@@ -53,7 +53,7 @@ jobs:
         run: |
           pwd
           ls
-          echo "${{secrets.SSH_PRIVATE_KEY}}" | base64 > key.pem
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > key.pem
           echo Give 600 permissions to key.pem file
           cat key.pem
           ls
