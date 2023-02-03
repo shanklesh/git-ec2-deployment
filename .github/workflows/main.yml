@@ -37,6 +37,10 @@ jobs:
       - name: Run test
         run: npm test
 
+      - name: Check PR status
+        run: |
+          echo "${{gitnub.event}}""
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
