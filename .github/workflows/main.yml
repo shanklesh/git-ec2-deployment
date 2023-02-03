@@ -57,7 +57,6 @@ jobs:
           echo Give 600 permissions to key.pem file
           chmod 600 key.pem
           echo ===========Deployment to aws ec2 starts here======================
-          chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
           tar cvzf server.tar.gz src *.txt LICENSE *.md *.json *.pem
           scp -o StrictHostKeyChecking=no -i ./key.pem ./server.tar.gz  ubuntu@ec2-18-181-220-174.ap-northeast-1.compute.amazonaws.com:~/
