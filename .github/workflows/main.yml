@@ -59,9 +59,9 @@ jobs:
           chmod 600 ./shanklesh.pem
           echo copy project folder to aws ec2
           tar cvzf server.tar.gz src *.txt LICENSE *.md *.json
-          scp -o StrictHostKeyChecking=no -i ./shanklesh.pem ./server.tar.gz  ubuntu@ec2-52-196-8-207.ap-northeast-1.compute.amazonaws.com:~/
+          scp -o StrictHostKeyChecking=no -i key.pem ./server.tar.gz  ubuntu@ec2-18-181-220-174.ap-northeast-1.compute.amazonaws.com:~/
           echo ssh into aws console
-          ssh -o StrictHostKeyChecking=no -i ./shanklesh.pem ubuntu@ec2-52-196-8-207.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@ec2-18-181-220-174.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
           tar xvzf server.tar.gz -C ./server
           cd server         
           export NVM_DIR=~/.nvm
