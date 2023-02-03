@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["main"]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - uses: actions/checkout@v3
+      - name: Say Hello world
+        env:
+          PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+
+        run: echo Hello
+
+      - name: multiline step
+        run: |
+          pwd
+          ls
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > key.pem
+          echo Give 600 permissions to key.pem file
+          chmod 600 key.pem
+          echo ===========Deployment to aws ec2 starts here======================
+          echo copy project folder to aws ec2
+          tar cvzf server.tar.gz src *.txt LICENSE *.md *.json *.pem
+          scp -o StrictHostKeyChecking=no -i ./key.pem ./server.tar.gz  ubuntu@ec2-18-181-220-174.ap-northeast-1.compute.amazonaws.com:~/
+          echo ssh into aws console
+          ssh -o StrictHostKeyChecking=no -i ./key.pem ubuntu@ec2-18-181-220-174.ap-northeast-1.compute.amazonaws.com <<"ENDSSH"
+          tar xvzf server.tar.gz -C ./server
+          cd server         
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
+          echo node version
+          node --version
+          echo npm version
+          npm -v
+          npm install
+          ENDSSH
+          echo ==============Server deployed successfully=========================
