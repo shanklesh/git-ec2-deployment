@@ -36,7 +36,3 @@ jobs:
 
       - name: Run test
         run: npm test
-
-      - name: Check PR status
-        run: |
-          echo "${{github.event.pull_request.merged}}"
